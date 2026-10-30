@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VisualSkill</title>
+    <link rel="stylesheet" href="style/register-style.css">
+    <link rel="stylesheet" href="style/font.css">
+    <link rel="icon" type="image/png" href="assets/LOGO.png">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="head-left">
+                <h1><a href="#">VisualSkill</a></h1>
+            </div>
+
+            <div class="head-mid">
+                <p><a href="home.html">HOME</a></p>
+                <p><a href="career.html">CAREER</a></p>
+                <p><a href="courses.html">COURSES</a></p>
+                <p><a href="about.html">ABOUT US</a></p>
+
+                <div class="nav-button mobile-only">
+                    <a href="login.html" class="btn-pill btn-login">LOGIN</a>
+                    <a href="register.html" class="btn-pill btn-register">REGISTER</a>
+                </div>
+            </div>
+
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+
+            <div class="head-right">
+                <div class="nav-button">
+                    <a href="login.html" class="btn-pill btn-login">LOGIN</a>
+                    <a href="register.html" class="btn-pill btn-register">REGISTER</a>
+                </div>
+            </div>
+        </header>
+    </div>
+
+    <div class="auth-viewport">
+        <div class="neon-grid"></div>
+
+        <div class="auth-card">
+            <a href="home.html" class="home-nav">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+                <span>HOME</span>
+            </a>
+
+            <div class="step-indicator">
+                <div class="step-node active" id="node1"></div>
+                <div class="step-node" id="node2"></div>
+            </div>
+
+            <div class="auth-module active" id="step1">
+                <div class="header-zone">
+                    <p class="guide-text">Use one of your existing accounts, or start from the beginning.</p>
+                </div>
+
+                <div class="platform-grid">
+                    <button class="p-btn facebook-btn" onclick="showAccessGranted('Facebook')">
+                        <img src="assets/logor_facebook.webp" alt="Facebook">
+                    </button>
+                    <button class="p-btn apple-btn" onclick="showAccessGranted('Apple')">
+                        <img src="assets/logor_apple.png" alt="Apple">
+                    </button>
+                    <button class="p-btn google-btn" onclick="showAccessGranted('Google')">
+                        <img src="assets/logor_google.png" alt="Google">
+                    </button>
+                    <button class="p-btn steam-btn" onclick="showAccessGranted('Steam')">
+                        <img src="assets/logor-steam.png" alt="Steam">
+                    </button>
+                    <button class="p-btn xbox-btn" onclick="showAccessGranted('Xbox')">
+                        <img src="assets/logor_xbox.png" alt="Xbox">
+                    </button>
+                    <button class="p-btn ps-btn" onclick="showAccessGranted('PlayStation')">
+                        <img src="assets/logor_ps.png" alt="PS">
+                    </button>
+                </div>
+
+                <div class="tactical-divider"><span>OR JOIN VIA EMAIL</span></div>
+
+                <div class="input-group">
+                    <div class="field-wrapper">
+                        <input type="text" id="email" required placeholder=" ">
+                        <label>Email Address</label>
+                    </div>
+                    <span class="error-msg" id="err-email"></span>
+                </div>
+
+                <button type="button" class="btn-primary main-capsule" onclick="navTo(2)">Register with Email</button>
+            </div>
+
+            <div class="auth-module" id="step2">
+                <div class="header-zone">
+                    <h1>Create Profile</h1>
+                </div>
+
+                <div class="form-container">
+                    <div class="input-group">
+                        <div class="field-wrapper">
+                            <input type="text" id="username" required placeholder=" ">
+                            <label>Username</label>
+                        </div>
+                        <span class="error-msg" id="err-username"></span>
+                    </div>
+
+                    <div class="input-group">
+                        <label class="group-label">Timeline of Birth</label>
+                        <div class="dob-row">
+                            <select id="dob-m" class="static-select"></select>
+                            <select id="dob-d" class="static-select"></select>
+                            <select id="dob-y" class="static-select"></select>
+                        </div>
+                        <span class="error-msg" id="err-dob"></span>
+                    </div>
+
+                    <div class="input-group">
+                        <label class="group-label">Gender Selection</label>
+                        <div class="gender-tablet">
+                            <button type="button" id="g-male" onclick="setGender('M')">Male</button>
+                            <button type="button" id="g-female" onclick="setGender('F')">Female</button>
+                        </div>
+                        <span class="error-msg" id="err-gender"></span>
+                    </div>
+
+                    <div class="input-group">
+                        <div class="field-wrapper">
+                            <input type="password" id="pass" required placeholder=" ">
+                            <label>Security Password</label>
+                        </div>
+                        <span class="error-msg" id="err-pass"></span>
+                    </div>
+
+                    <div class="input-group">
+                        <div class="field-wrapper">
+                            <input type="password" id="confirm" required placeholder=" ">
+                            <label>Confirm Password</label>
+                        </div>
+                        <span class="error-msg" id="err-confirm"></span>
+                    </div>
+
+                    <div class="input-group">
+                        <div class="agreement-row">
+                            <input type="checkbox" id="terms-agreement" />
+                            <label for="terms-agreement" class="agreement-label">
+                                I agree to the <a href="#" target="_blank">Terms of Agreement</a>
+                            </label>
+                        </div>
+                        <span class="error-msg" id="err-agreement"></span>
+                    </div>
+                </div>
+
+                <div class="action-row">
+                    <button type="button" class="btn-secondary capsule" onclick="navTo(1)">Back</button>
+                    <button type="button" class="btn-primary main-capsule" onclick="validateFinal()">Activate</button>
+                </div>
+
+                <div class="auth-switch">
+                    <span>Already have an account?</span>
+                    <a href="login.html">Log in here</a>
+                </div>
+            </div>
+        </div>
+        <div id="access-notification">
+            <div class="notification-card">
+                <h2>ACCESS GRANTED</h2>
+                <p>Successful authentication via <span id="platform-name"></span><br>Redirecting to dashboard...</p>
+                <button class="close-notif" onclick="closeAccessGranted()">Continue</button>
+            </div>
+        </div>
+    </div>
+
+    <footer class="main-footer">
+        <div class="footer-container">
+            <div class="footer-content">
+                <div class="footer-section about">
+                    <h2 class="footer-logo">VISUALSKILL</h2>
+                    <p>The ultimate global e-football academy. Master the pitch, rule the game, and be the next legend.</p>
+                </div>
+
+                <div class="footer-section links">
+                    <h3>QUICK LINKS</h3>
+                    <ul>
+                        <li><a href="home.html">Home</a></li>
+                        <li><a href="career.html">Career</a></li>
+                        <li><a href="courses.html">Courses</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section contact">
+                    <h3>SUPPORT</h3>
+                    <ul>
+                        <li><a href="career.html#faq">FAQ</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="home.html#contact">Contact Support</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 VisualSkill. All Rights Reserved. Affiliated with Konami and FIFA.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="register.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
